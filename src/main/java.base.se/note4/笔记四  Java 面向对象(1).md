@@ -113,7 +113,7 @@ public class XiaoMing {
 
 
 
-> **this **
+> **this**
 
 - 使用方式：当前对象的调用
 ```java
@@ -291,7 +291,6 @@ public interface Usb {
 ## 2.内部类
 
 > 定义： 定义在**类内部、方法内部** 或 **局部代码块中的类**
-
 - **非静态** 内部类
    - 定义：依赖于 **外部类对象** 存在
 
@@ -316,15 +315,11 @@ public class OutClass {
     }
 
 }
-
 ```
 
 
 
-
-
 - **静态** 内部类
-
    - 定义: 声明在 **内部的类**
 
    - 注意：
@@ -417,7 +412,7 @@ public class OutClass {
 
 
 
- 
+
 
 - **成员** 内部类
 
@@ -510,6 +505,3 @@ public class OutClass {
 }
 
 ```
-
-
-
