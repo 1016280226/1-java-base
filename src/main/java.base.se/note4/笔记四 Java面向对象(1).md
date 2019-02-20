@@ -37,8 +37,7 @@ public class Person {
 
 ```
 
-
-
+​
 > 对象 **Object**
 
 - 对象是类的 **一个实例 **
@@ -66,7 +65,7 @@ public class XiaoMing {
 
 ```
 
-
+​
 
 > 引用 **Reference**
 
@@ -82,7 +81,7 @@ public class XiaoMing {
 ```
 
 
-
+​
 > 构造方法 **Construction**
 
 - 在创建一个对象的时候， **至少有一个构造方法 **.
@@ -112,7 +111,7 @@ public class XiaoMing {
 ```
 
 
-
+​
 > **this**
 
 - 使用方式：当前对象的调用
@@ -128,7 +127,7 @@ public class XiaoMing {
   
 
 
-
+​
 > 方法重载 
 
 - 使用方式：同名不同参
@@ -212,7 +211,7 @@ public abstract class Animal {
 
 
 
-
+​
 > 最终 **final** 
 
 - 定义： 最终变量，**不可改变**
@@ -251,7 +250,7 @@ public final class Dog extends Animal{
 ```
 
 
-
+​
 > 静态 **static** 
 
 - 定义：**静态变量** 属于**类** (类变量)
@@ -267,7 +266,7 @@ public final class Dog extends Animal{
 ```
 
 
-
+​
 ### 1.3
 
 > 接口 **Interface**
@@ -286,7 +285,7 @@ public interface Usb {
 
 ```
 
-
+​
 
 ## 2.内部类
 
@@ -317,7 +316,7 @@ public class OutClass {
 }
 ```
 
-
+​
 
 - **静态** 内部类
    - 定义: 声明在 **内部的类**
@@ -355,7 +354,7 @@ public class OutClass {
 ```
 
 
-
+​
 - **局部** 内部类
    - 定义：
 
@@ -413,7 +412,7 @@ public class OutClass {
 
 
 
-
+​
 - **成员** 内部类
 
    - 定义：内部类的 成员属性（该属性是成员内部类）
@@ -453,7 +452,7 @@ public class OutClass {
 ```
 
 
-
+​
 - **匿名** 内部类
    - 定义：
      - 就是没有名称的类，其名称由Java编译器给出，
