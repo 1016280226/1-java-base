@@ -313,33 +313,161 @@ public class Children extends Father{
 > 3.  此时通过父类引用变量无法调用子类特有的方法
 > 4. 如果父类要**调用子类的特有方法**就得将**一个指向子类对象的父类引用赋给一个子类的引用**,称为**向下转型**,**此时必须进行强制类型转换**
 
+
+
+![1550720233279](C:\Users\Calvin\AppData\Roaming\Typora\typora-user-images\1550720233279.png)
+
+
+
 ```java
+
+a.向上转型：父类 = 子类实例化() ========== 1.子类和父类确立关系 ============== 2.系统自动完成  作用：父类可以接受来自不同子类的实现方式（覆盖父类方法的子类方法）。  例如：B(fun1)、C(fun1) 继承 A (fun1) ====>> 如何子类如何获取覆盖fun1 =====>>fun(new B) || fun(new C)==========>> fun(A a){ a.fun1()}=========>>向上转型：子类可以获取到子类覆盖的对应方法。 
+
+
+b.向下转型: 子类 = 父类实例化() ========== 1.无法确立关系，需要先进行确立关系（向上转型后）,才能进行转换。================== 否则，强制转换（转换异常）  作用：可以获取子类自定义的方法。
+
+
 package note4.manystate;
 
-import note4.extend.Children;
-import note4.extend.Father;
+/**
+ * 父类
+ */
+public class Parent {
+
+    /**
+     * fun1()
+     **/
+    public void fun1() {
+        System.out.println("【执行的是父类fun1】");
+    }
+
+    /**
+     * fun2()
+     **/
+    public void fun2() {
+        this.fun1();
+    }
+}
 
 /**
- * @author Calvin
- * @titile: 多态
- * @date 2019/2/21
- * @since 1.0
+ * 子类A继承父类
  */
-public class States {
+class Children1 extends Parent {
+
+    /**
+     * 重载 -> 父类fun1()
+     */
+    @Override
+    public void fun1() {
+        System.out.println("【执行的是子类A fun1】");
+    }
+
+    /**
+     * 自定义方法fun3
+     */
+    public void fun3() {
+        System.out.println("【执行的是子类A fun3】");
+    }
+}
+
+/**
+ * 子类B继承父类
+ */
+class Children2 extends Parent {
+
+    /**
+     * 重载 -> 父类fun1()
+     */
+    @Override
+    public void fun1() {
+        System.out.println("【执行的是子类B fun1】");
+    }
+
+    /**
+     * 自定义方法fun4
+     */
+    public void fun4() {
+        System.out.println("【执行的是子类A fun4】");
+    }
+}
+
+
+/**
+ * Created by Calvin on 2018/6/5
+ * 向上转型
+ * 父类 = 子类实例化
+ */
+class Upcasting {
+
+    public static void main(String[] args) {
+        Children1 children = new Children1();
+        Parent parent = children; // 向上转型：父类 = 子类实例化
+        parent.fun1();            // 【执行的是子类A fun1】
+    }
+}
+
+
+/**
+ * Created by Calvin on 2018/6/5
+ * 向下转型
+ * 子类 = 父类实例化
+ * ps:
+ * 1.向下转型，必须先向上转型（确立父子关系），才能进行向下转型。
+ * 2.如果单一的向下转型，报错：转换异常。
+ */
+class Downcasting {
 
     public static void main(String[] args) {
 
-        // 向上转型
-        Father father =  new Children();
-        // 父类引用调用的方法是子类覆盖或继承父类的方法,不是父类的方法
-        father.haveHealthBody();
+        Parent parent = new Children1();          // 向上转型（确立关系）
+        Children1 children = (Children1) parent;  // 向下转型
+        children.fun1();                          // 调用方法被复写 【执行的是子类A fun1】
+        children.fun2();                          // 调用父类的方法 【执行的是父类fun1】
+        children.fun3();                          // 调用子类自定义的方法 【执行的是子类A fun3】
+    }
+}
 
-        // 通过父类引用变量无法调用子类特有的方法
-        // father.speakChinese();
 
-        // 向下转型
-        Children children = (Children) new Father();
+/**
+ * Created by Calvin on 2018/6/6
+ * 向上转型功能代码
+ */
+class PolymorphicFunction {
+
+/********************************************* 不使用多态 ****************************/
+    /**
+     * 缺点: 每一拓展子类,每一次都fun()方法都要重载一次。
+     * A==>>B,C,D
+     */
+    public void unUsedPolymorphic() {
+        unfun(new Children1());
+        unfun(new Children2());
     }
 
+    public void unfun(Children1 children1) {
+        children1.fun1();
+    }
+
+    public void unfun(Children2 children2) {
+        children2.fun1();
+    }
+
+    /********** 使用多态: 实现父类下任意子类对象，并调用方法 ***********************/
+
+    public void usePolymorphic() {
+// 父类的通用方法 fun1 -> 只要向上转型实例其中一个子类 -> 就能获取到子类重载父类的方法 -> 使用的是子类的方法
+        fun(new Children1());
+        fun(new Children2());
+    }
+
+    public void fun(Parent parent) {
+        parent.fun1();
+    }
 }
+
 ```
+
+
+
+![](C:\Users\Calvin\Pictures\Saved Pictures\8、java面对对象三大特性.png)
+
