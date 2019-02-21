@@ -188,7 +188,7 @@ package note4;
  */
 
 /**
- * abstract -> 关键字标识为抽象类 
+ *extend
  */
 public abstract class Animal {
 

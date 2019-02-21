@@ -1,5 +1,6 @@
 package note4.base;
 
+import note4.access.DefaultSymbol;
 import note4.base.Person;
 
 /**
@@ -45,4 +46,5 @@ public class XiaoMing {
         // 将传入person的值 -> 赋值给 XiaoMing 中的属性 person
        this.person = person;
     }
+
 }
