@@ -206,7 +206,7 @@ public class AccessSymbolOperation {
 
 
 
-##2. 继承
+## 2. 继承
 
 ### 2.1 定义
 
