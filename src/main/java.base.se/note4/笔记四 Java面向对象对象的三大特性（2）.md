@@ -43,7 +43,7 @@ public class PrivateSymbol {
 
     /**
      * pirvate 修饰的方法，只能适用于当前类
-     * @param s
+     * @param message
      * @return
      */
     private void println(String message){
