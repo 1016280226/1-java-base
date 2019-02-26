@@ -2,15 +2,9 @@ package note4.instance;
 
 /**
  * @author Calvin
- * @titile:
+ * @titile: 创建对象
  * @date 2019/2/22
  * @since 1.0
- */
-
-/**
- * 1. 创建对象
- *
- *
  */
 public class Object {     // 对象名称
     private String name = "Calvin";  // 对象名称

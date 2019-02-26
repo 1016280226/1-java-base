@@ -1,11 +1,9 @@
 package note4.base;
 
-import note4.access.DefaultSymbol;
-import note4.base.Person;
 
 /**
  * @author Calvin
- * @titile: 小明
+ * @titile: 构造方法
  * @date 2019/2/20
  * @since 1.0
  */

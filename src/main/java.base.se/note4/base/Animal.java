@@ -2,7 +2,7 @@ package note4.base;
 
 /**
  * @author Calvin
- * @titile: 动物 (抽象类)
+ * @titile: 抽象
  * @date 2019/2/20
  * @since 1.0
  */

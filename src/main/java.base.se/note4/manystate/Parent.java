@@ -1,7 +1,10 @@
 package note4.manystate;
 
 /**
- * 父类
+ * @author Calvin
+ * @titile: 多态
+ * @date 2019/2/22
+ * @since 1.0
  */
 public class Parent {
 

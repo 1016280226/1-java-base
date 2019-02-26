@@ -2,7 +2,7 @@ package note4.base;
 
 /**
  * @author Calvin
- * @titile: 人类
+ * @titile: 对象的行为和状态
  * @date 2019/2/20
  * @since 1.0
  */

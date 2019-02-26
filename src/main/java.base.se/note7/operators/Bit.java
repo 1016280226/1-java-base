@@ -1,4 +1,4 @@
-package note7;
+package note7.operators;
 
 /**
  * @author Calvin

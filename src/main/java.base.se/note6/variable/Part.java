@@ -1,4 +1,4 @@
-package note6.partvariable;
+package note6.variable;
 
 import java.util.function.Consumer;
 
@@ -15,9 +15,9 @@ import java.util.function.Consumer;
  *      2.执行完   -> 被销毁
  *      3.局部变量是在栈上分配的。
  */
-public class PartVariable {
+public class Part {
 
-    PartVariable(){
+    Part(){
 
         // 声明: 在构造方法
         int b = 1;

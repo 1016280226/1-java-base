@@ -1,6 +1,4 @@
-package note6.classVariable;
-
-import java.sql.SQLOutput;
+package note6.variable;
 
 /**
  * @author Calvin
@@ -8,7 +6,7 @@ import java.sql.SQLOutput;
  * @date 2019/2/23
  * @since 1.0
  */
-public class ClassVariable {
+public class Class {
 
     // 1. 在类中以static关键字声明，但必须在方法构造方法和语句块之外。
     private static String staticVariableForString;
@@ -48,10 +46,10 @@ public class ClassVariable {
 
     public static void main(String[] args) {
         // 1.静态变量在程序开始时创建，在程序结束时销毁。
-        System.out.println(ClassVariable.staticVariableForString);
+        System.out.println(Class.staticVariableForString);
         // 1.1 类变量默认值
-        ClassVariable.defaultValue();
+        Class.defaultValue();
         // 1.3 最终静态变量
-        System.out.println(ClassVariable.FINAL_STATIC_VARIABLE_FOR_STRING);
+        System.out.println(Class.FINAL_STATIC_VARIABLE_FOR_STRING);
     }
 }

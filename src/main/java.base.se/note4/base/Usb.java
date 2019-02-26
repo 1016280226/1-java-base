@@ -2,7 +2,7 @@ package note4.base;
 
 /**
  * @author Calvin
- * @titile: USB接口
+ * @titile: 接口
  * @date 2019/2/20
  * @since 1.0
  */
