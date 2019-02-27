@@ -1,4 +1,4 @@
-# 笔记7 Java 运算符
+# 笔记七 Java 运算符
 
 [TOC]
 
@@ -137,7 +137,7 @@ public class Relation {
 
 
 ```java
-package note7;
+package note7.operators;
 
 /**
  * @author Calvin
@@ -149,19 +149,25 @@ public class Bit {
 
     public static void main(String[] args) {
         int a = 10; // 10 转化成二进制 -> 10/2 = 1010 -> 位数0
-        int b = 11; // 11 转化成二进制 -> 11/2 = 1011 -> 位数1
+        int b = 12; // 12 转化成二进制 -> 12/2 = 1100 -> 位数0
 
         // & 如果相对应位都是1，则结果为1，否则为0
-        System.out.println(a & b); // 结果为 10
+        System.out.println(a&b); // a 的二进制 1010 ，b 的二级制 1100 -> 1000 -> 结果: 8 (十进制)
 
         // | 如果相对应位都是0，则结果为0，否则为1
-        System.out.println(a | b);  // 结果为11
+        System.out.println(a | b);  // a 的二进制 1010 ，b 的二级制 1100 -> 1110 -> 结果: 14 (十进制)
 
         // ^ 如果相对应位值相同，则结果为0，否则为1
-        System.out.println(a ^ b); // 结果为1
+        System.out.println(a ^ b); // a 的二进制 1010 ，b 的二级制 1100 -> 0110 -> 结果: 6 (十进制)
 
-        // 〜 按位补运算符翻转操作数的每一位 （即0变成1，1变成0）
-        System.out.println(~b); // 1010
+        // 〜 按位补运算符翻转操作数的每一位，即0变成1，1变成0
+        /** b 的二级制 1100 -> 0011 (即0变成1，1变成0)
+         *                 -> 0011 - 0001(减掉 二进制 1)
+         *                 -> 0010
+         *                 -> 1101 ((即0变成1，1变成0))
+         *  最终结果: -13
+         */
+        System.out.println(~b);
 
         // << 按位左移运算符。左操作数按位左移右操作数指定的位数(在低位补0)
         System.out.println(a << 2); // 结果为: 40  1010 -> 101000
@@ -170,11 +176,12 @@ public class Bit {
         // >> 按位右移运算符。左操作数按位右移右操作数指定的位数(如果值为正，则在高位补0，如果值为负，则在高位补1.)
         System.out.println(a >> 2); // 结果为: 2  1010 -> 10
         System.out.println(a >> 3); // 结果为: 1  1010 -> 1
-        
+
         //  >>> 按位右移补零操作符。左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充。(采用0扩展机制，也就是说，无论值的正负，都在高位补0.)
         System.out.println(100 >>> 2); // 结果: 25
     }
 }
+
 ```
 
 
@@ -220,3 +227,185 @@ public class logic {
     }
 }
 ```
+
+
+
+## 5. 赋值运算符
+
+| 符号 | 译义               |
+| ---- | ------------------ |
+| =    | 赋值运算符         |
+| + =  | 加和赋值操作符     |
+| - =  | 减和赋值操作符     |
+| * =  | 乘和赋值操作符     |
+| / =  | 除和赋值操作符     |
+| ％=  | 取模和赋值操作符   |
+| << = | 左移位赋值运算符   |
+| >> = | 右移位赋值运算符   |
+| ＆=  | 按位与赋值运算符   |
+| ^ =  | 按位异或赋值操作符 |
+| =    | 按位或赋值操作符   |
+
+
+
+```java
+package note7.operators;
+
+/**
+ * @author Calvin
+ * @titile: 赋值运算符
+ * @date 2019/2/26
+ * @since 1.0
+ */
+public class Assignment {
+
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 11;
+
+        // = 赋值运算符 (b 赋值 c) -> c = 11
+        int c = b;
+        System.out.println(c);
+
+        // += 加和赋值操作符 (d + c) -> d =  12 + 11
+        int d = 12;
+        d += c;
+        System.out.println(d);
+
+        // -= 加和赋值操作符 (d - c) -> d = 23 - 11
+        d -= c;
+        System.out.println(d);
+
+        // *= 乘和赋值操作符 (d * c) -> d = 12 * 11
+        d *= c;
+        System.out.println(d);
+
+        // /= 除和赋值操作符 (d / c) -> d = 132 / 11
+        d /= c;
+        System.out.println(d);
+
+        // % = 取模和赋值操作符 (d % c) -> d = 12 % 11
+        d %= c;
+        System.out.println(d);
+
+        // <<= 左移位赋值运算符 d << c ->  1 << 11 -> 1 （二进制）-> 100000000000 (向左移动11位，低位补0)
+        d <<= c;
+        System.out.println(d);
+
+        // >>= 右移位赋值运算符 d >> c ->  2048 >>11 -> 100000000000 （二进制）-> 1 (向右移动11位，低位补0)
+        d >>= c;
+        System.out.println(d);
+
+        // &= 按位与赋值运算符 d & c -> d 是 1 (二进制)，c 是 1011 （如果相对应位都是1，则结果为1，否则为0) -> 结果 1
+        d &= c;
+        System.out.println(d);
+
+        // ^= 按位异或赋值操作符 d ^ c
+        d ^= c;
+        System.out.println(d);
+
+        // |= 按位异或赋值操作符 d | c
+        d |= c;
+        System.out.println(d);
+
+    }
+}
+
+```
+
+
+
+## 6. 其他运算符
+
+### 6.1 三目运算符
+
+> 含义：条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量
+>
+> 格式：variable x = (expression) ? value if true : value if false
+
+```java
+package note7.operators;
+
+/**
+ * @author Calvin
+ * @titile: 三目运算符
+ * @date 2019/2/27
+ * @since 1.0
+ * @format variable x = (expression) ? value if true : value if false
+ * @implication 条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量
+ */
+public class threeElements {
+
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 11;
+        System.out.println(a > b ? a : b);
+
+        //  System.out.println(a > b ? a : b); 翻译
+        if(a > b){
+            System.out.println(a);
+        }else{
+            System.out.println(b);
+        }
+    }
+}
+
+```
+
+
+
+### 6.2 instanceof 运算符
+
+> 含义：该运算符用于操作**对象实例**，检查该**对象是否是一个特定类型**（类类型或接口类型）
+>
+> 格式：( Object reference variable ) instanceof  (class/interface type)
+
+```java
+package note7.operators;
+
+import note4.extend.Children;
+import note4.extend.Father;
+
+/**
+ * @author Calvin
+ * @titile: instance of  运算符
+ * @date 2019/2/27
+ * @since 1.0
+ * @implication 该运算符用于操作对象实例，检查该对象是否是一个特定类型（类类型或接口类型）
+ * @format ( Object reference variable ) instanceof  (class/interface type)
+ */
+public class Instanceof {
+
+    public static void main(String[] args) {
+        Children children = new Children();
+        if(children instanceof Father){
+        }
+            
+    }
+}
+
+```
+
+
+
+## 7. 运算符优先级
+
+| 译义     | 符号                                       | 优先级   |
+| -------- | ------------------------------------------ | -------- |
+| 一元     | + + - ！〜                                 | 从右到左 |
+| 乘性     | * / ％                                     | 左到右   |
+| 加性     | + -                                        | 左到右   |
+| 移位     | >> >>>  <<                                 | 左到右   |
+| 关系     | >> = << =                                  | 左到右   |
+| 相等     | ==  !=                                     | 左到右   |
+| 按位与   | ＆                                         | 左到右   |
+| 按位异或 | ^                                          | 左到右   |
+| 按位或   | \|                                         | 左到右   |
+| 逻辑与   | &&                                         | 左到右   |
+| 逻辑或   | \|\|                                       | 左到右   |
+| 条件     | ？：                                       | 从右到左 |
+| 赋值     | = + = - = * = / =％= >> = << =＆= ^ = \| = | 从右到左 |
+| 逗号     | ，                                         | 左到右   |
+| 后缀     | () [] . (点操作符)                         | 左到右   |
+
